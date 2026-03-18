@@ -33,7 +33,6 @@ export interface GeneralInfo {
 
 export interface Skill {
   name: string;
-  icon: string;
 }
 
 export interface ProjectBadgeDetails {
@@ -56,6 +55,8 @@ export interface Project {
   badges: string[];
   links: ProjectLinks;
   technologies: string[];
+  year: string;
+  in_progress?: boolean;
 }
 
 export interface ExperienceItem {
@@ -147,55 +148,55 @@ export const aboutMeDescription = {
 
 export const skills: Skill[] = [
   // Languages
-  { name: 'C', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg' },
-  { name: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg' },
-  { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
-  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
-  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
-  { name: 'Dart', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg' },
-  { name: 'Bash', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg' },
+  { name: 'C' },
+  { name: 'C++' },
+  { name: 'Python' },
+  { name: 'JavaScript' },
+  { name: 'TypeScript' },
+  { name: 'Dart' },
+  { name: 'Bash' },
 
   // Web & Frontend
-  { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
-  { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
-  { name: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg' },
-  { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
-  { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' },
-  { name: 'Flutter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg' },
-  { name: 'TailwindCSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
-  { name: 'Socket.IO', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg' },
+  { name: 'HTML' },
+  { name: 'CSS' },
+  { name: 'Bootstrap' },
+  { name: 'React' },
+  { name: 'Next.js' },
+  { name: 'Flutter' },
+  { name: 'TailwindCSS' },
+  { name: 'Socket.IO' },
 
   // Backend/API/Frameworks
-  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
-  { name: 'Express', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg' },
-  { name: 'Flask', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg' },
-  { name: 'FastAPI', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' },
-  { name: 'Pytest', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytest/pytest-original.svg' },
-  { name: 'RabbitMQ', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rabbitmq/rabbitmq-original.svg' },
+  { name: 'Node.js' },
+  { name: 'Express' },
+  { name: 'Flask' },
+  { name: 'FastAPI' },
+  { name: 'Pytest' },
+  { name: 'RabbitMQ' },
 
   // AI/ML/DL
-  { name: 'TensorFlow', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg' },
-  { name: 'PyTorch', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg' },
-  { name: 'Scikit-learn', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg' },
-  { name: 'Hugging Face', icon: icons.hugging_face_logo },
+  { name: 'TensorFlow' },
+  { name: 'PyTorch' },
+  { name: 'Scikit-learn' },
+  { name: 'Hugging Face' },
 
   // Databases
-  { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
-  { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
-  { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
+  { name: 'MySQL' },
+  { name: 'PostgreSQL' },
+  { name: 'MongoDB' },
 
   // Cloud & DevOps
-  { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
-  { name: 'AWS CDK', icon: icons.aws_cloud_development_kit },
-  { name: 'Azure', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg' },
-  { name: 'GCP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg' },
-  { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
-  { name: 'Kubernetes', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg' },
-  { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
-  { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
-  { name: 'GitHub Actions', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg' },
-  { name: 'Helm', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/helm/helm-original.svg' },
-  { name: 'ArgoCD', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/argocd/argocd-original.svg' },
+  { name: 'AWS' },
+  { name: 'AWS CDK' },
+  { name: 'Azure' },
+  { name: 'GCP' },
+  { name: 'Docker' },
+  { name: 'Kubernetes' },
+  { name: 'Linux' },
+  { name: 'Git' },
+  { name: 'GitHub Actions' },
+  { name: 'Helm' },
+  { name: 'ArgoCD' },
 ];
 
 export const projectBadgeDetails: ProjectBadgeDetails = {
@@ -209,57 +210,15 @@ export const projectBadgeDetails: ProjectBadgeDetails = {
 export const projectItems: Project[] = [
   {
     name: 'Portfolio Website',
-    description: 'My portfolio website built using Next.js, React, and Bootstrap. Animations were created using Framer Motion',
+    description: 'Personal portfolio and blog built with Next.js, TypeScript, and Tailwind CSS. Statically exported and deployed to GitHub Pages.',
     image: '/images/projects/nextjs-portfolio-website.png',
     badges: ['Web'],
     links: {
       github: 'https://github.com/jothamteshome/NextJS-Portfolio-Website',
     },
-    technologies: ['Bootstrap', 'CSS', 'JavaScript', 'React', 'Next.js', 'Framer Motion'],
-  },
-  {
-    name: 'Classification of Pokemon Sprites',
-    description:
-      'Collaborated with a team of four students to design and implement a convolutional neural network model. Successfully utilized image processing and machine learning techniques to classify Pokémon sprites within a set of images, achieving up to 86% accuracy in classifying sprites from battle images.',
-    image: '/images/projects/classification-of-pokemon-sprites.png',
-    badges: ['CV'],
-    links: {
-      github: 'https://github.com/jothamteshome/Classification-of-Pokemon-Sprites',
-    },
-    technologies: ['CNN', 'OpenCV', 'Python', 'PyTorch'],
-  },
-  {
-    name: 'Predicting NFL Betting Odds',
-    description:
-      'In this project, we aim to predict the points spread of an NFL game using many different factors, including home and away team records and average per game metrics. To make these predictions effectively, we tested various regression models, including linear regression, ridge regression, lasso regression, random forest regression, voting regression, support vector regression, and a neural network.',
-    image: '/images/projects/predicting-nfl-betting-odds.jpg',
-    badges: ['ML'],
-    links: {
-      github: 'https://github.com/jothamteshome/Predicting-NFL-Betting-Odds',
-    },
-    technologies: ['Python', 'PyTorch', 'Sci-Kit Learn', 'BeautifulSoup'],
-  },
-  {
-    name: 'Identifying and Removing Toxic Comments',
-    description:
-      'In this project, we propose a method to detect toxic statements and identify specific toxic words within these statements. Additionally, we developed a method to completely censor these harmful words to prevent their negative impact in online spaces.',
-    image: '/images/projects/identifying-and-removing-toxic-comments.png',
-    badges: ['NLP'],
-    links: {
-      github: 'https://github.com/jothamteshome/Identifying-And-Removing-Toxic-Comments',
-    },
-    technologies: ['Python', 'Tensorflow', 'NLTK', 'FastText'],
-  },
-  {
-    name: 'ChatGPT API with AWS CDK',
-    description:
-      "A serverless REST API that integrates OpenAI's GPT-4.1-mini model using AWS CDK, Lambda, and API Gateway. Designed for scalable, secure deployment of chat-based AI services.",
-    image: '/images/projects/aws-chatgpt-api.png',
-    badges: ['Cloud', 'NLP'],
-    links: {
-      github: 'https://github.com/jothamteshome/AWS-ChatGPT-API',
-    },
-    technologies: ['AWS CDK', 'Lambda', 'API Gateway', 'OpenAI', 'Python'],
+    technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'MDX'],
+    year: '2026',
+    in_progress: true,
   },
   {
     name: 'Watch Together',
@@ -272,6 +231,55 @@ export const projectItems: Project[] = [
       live_demo: 'https://watch-together.whymighta.net',
     },
     technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'Socket.IO', 'TailwindCSS'],
+    year: '2025',
+  },
+  {
+    name: 'ChatGPT API with AWS CDK',
+    description:
+      "A serverless REST API that integrates OpenAI's GPT-4o-mini model using AWS CDK, Lambda, and API Gateway. Designed for scalable, secure deployment of chat-based AI services.",
+    image: '/images/projects/aws-chatgpt-api.png',
+    badges: ['Cloud', 'NLP'],
+    links: {
+      github: 'https://github.com/jothamteshome/AWS-ChatGPT-API',
+    },
+    technologies: ['AWS CDK', 'Lambda', 'API Gateway', 'OpenAI', 'Python'],
+    year: '2025',
+  },
+  {
+    name: 'Classification of Pokemon Sprites',
+    description:
+      'Collaborated with a team of four to design and implement a convolutional neural network model that classifies Pokémon sprites within battle images, achieving up to 86% accuracy using image processing and deep learning techniques.',
+    image: '/images/projects/classification-of-pokemon-sprites.png',
+    badges: ['CV'],
+    links: {
+      github: 'https://github.com/jothamteshome/Classification-of-Pokemon-Sprites',
+    },
+    technologies: ['CNN', 'OpenCV', 'Python', 'PyTorch'],
+    year: '2024',
+  },
+  {
+    name: 'Identifying and Removing Toxic Comments',
+    description:
+      'A method to detect toxic statements, identify specific toxic words, and censor harmful language in online spaces. Uses transformer-based NLP models to flag and redact toxicity at the token level.',
+    image: '/images/projects/identifying-and-removing-toxic-comments.png',
+    badges: ['NLP'],
+    links: {
+      github: 'https://github.com/jothamteshome/Identifying-And-Removing-Toxic-Comments',
+    },
+    technologies: ['Python', 'TensorFlow', 'NLTK', 'FastText'],
+    year: '2023',
+  },
+  {
+    name: 'Predicting NFL Betting Odds',
+    description:
+      'Predicts NFL game point spreads by testing multiple regression approaches — linear, ridge, lasso, random forest, support vector, and neural network — against team records and per-game metrics.',
+    image: '/images/projects/predicting-nfl-betting-odds.jpg',
+    badges: ['ML'],
+    links: {
+      github: 'https://github.com/jothamteshome/Predicting-NFL-Betting-Odds',
+    },
+    technologies: ['Python', 'PyTorch', 'Scikit-learn', 'BeautifulSoup'],
+    year: '2023',
   },
 ];
 

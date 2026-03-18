@@ -53,20 +53,12 @@ export default function AboutPage() {
 
             <div className="flex flex-wrap gap-2">
               {categorySkills.map((skill) => (
-                <div
+                <span
                   key={skill.name}
-                  className="flex items-center gap-2 px-3 py-1 rounded-full bg-surface hover:bg-surface-secondary transition-colors text-sm text-foreground"
-                  title={skill.name}
+                  className="px-3 py-1 rounded-full bg-surface text-sm text-foreground"
                 >
-                  <img
-                    src={skill.icon}
-                    alt={skill.name}
-                    width={16}
-                    height={16}
-                    className="w-4 h-4"
-                  />
-                  <span>{skill.name}</span>
-                </div>
+                  {skill.name}
+                </span>
               ))}
             </div>
           </div>

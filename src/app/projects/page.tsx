@@ -1,85 +1,54 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { projectItems, projectBadgeDetails } from '@/constants/profileConstants';
+import { projectItems } from '@/constants/profileConstants';
 
 export default function ProjectsPage() {
   return (
     <div className="py-20">
       <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-12">Projects</h1>
 
-      <div className="space-y-8">
+      <div className="space-y-10">
         {projectItems.map((project, idx) => (
-          <div
-            key={idx}
-            className="border border-surface rounded-lg overflow-hidden hover:border-accent/50 transition-colors"
-          >
-            {/* Project Image */}
-            <div className="relative w-full h-48 sm:h-64 bg-surface">
-              <Image
-                src={project.image}
-                alt={project.name}
-                fill
-                className="object-cover"
-              />
+          <div key={idx} className="border-b border-surface pb-10 last:border-b-0 last:pb-0">
+            <div className="flex items-baseline gap-3 mb-2">
+              <h2 className="text-xl font-bold text-foreground">{project.name}</h2>
+              {project.in_progress && (
+                <span className="text-xs text-accent border border-accent/40 px-2 py-0.5 rounded-full">
+                  In Progress
+                </span>
+              )}
+              <span className="text-sm text-muted ml-auto">{project.year}</span>
             </div>
 
-            {/* Project Info */}
-            <div className="p-6 sm:p-8">
-              <h2 className="text-2xl font-bold text-foreground mb-2">{project.name}</h2>
+            {/* Description */}
+            <p className="text-muted leading-relaxed mb-4">{project.description}</p>
 
-              {/* Badges */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.badges.map((badge) => {
-                  const badgeDetail = projectBadgeDetails[badge];
-                  return (
-                    <span
-                      key={badge}
-                      className="text-xs px-2 py-1 rounded-full bg-surface text-muted"
-                      title={badgeDetail?.title}
-                    >
-                      {badge}
-                    </span>
-                  );
-                })}
-              </div>
+            {/* Technologies */}
+            <p className="text-sm text-muted mb-5">
+              <span className="text-foreground font-medium">Stack:</span>{' '}
+              {project.technologies.join(' · ')}
+            </p>
 
-              {/* Description */}
-              <p className="text-muted leading-relaxed mb-4">{project.description}</p>
+            {/* Links */}
+            <div className="flex gap-4">
+              <Link
+                href={project.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-accent hover:underline underline-offset-2 transition-colors"
+              >
+                GitHub →
+              </Link>
 
-              {/* Technologies */}
-              <div className="flex flex-wrap gap-1 mb-4">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs px-2 py-1 rounded bg-surface-secondary text-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {/* Links */}
-              <div className="flex gap-3">
+              {project.links.live_demo && (
                 <Link
-                  href={project.links.github}
+                  href={project.links.live_demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-4 py-2 rounded-md bg-accent text-background hover:bg-accent-secondary transition-colors text-sm font-medium"
+                  className="text-sm text-accent hover:underline underline-offset-2 transition-colors"
                 >
-                  View on GitHub
+                  Live Demo →
                 </Link>
-
-                {project.links.live_demo && (
-                  <Link
-                    href={project.links.live_demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-4 py-2 rounded-md border border-accent text-accent hover:bg-surface transition-colors text-sm font-medium"
-                  >
-                    Live Demo
-                  </Link>
-                )}
-              </div>
+              )}
             </div>
           </div>
         ))}

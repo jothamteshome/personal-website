@@ -6,6 +6,7 @@ export const navigationRoutes = [
     { name: 'About', route: '/about' },
     { name: 'Projects', route: '/projects' },
     { name: 'Experience', route: '/experience' },
+    { name: 'Blog', route: '/blog' },
     { name: 'Contact', route: '/contact' }
 ];
 

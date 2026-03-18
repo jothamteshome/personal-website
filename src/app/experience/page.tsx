@@ -48,10 +48,10 @@ export default function ExperiencePage() {
       <section>
         <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">Education</h2>
 
-        <div className="space-y-6">
+        <div className="space-y-8">
           {educationItems.map((edu, idx) => (
-            <div key={idx} className="border border-surface rounded-lg p-6">
-              <div className="flex items-start gap-4 mb-4">
+            <div key={idx} className="border-l-2 border-accent pl-6">
+              <div className="flex items-start gap-4 mb-3">
                 <div className="flex-shrink-0 relative w-12 h-12">
                   <Image
                     src={edu.logo}
@@ -62,27 +62,23 @@ export default function ExperiencePage() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-bold text-foreground">{edu.degree_aquired}</h3>
+                  <h3 className="text-xl font-bold text-foreground">{edu.degree_aquired}</h3>
                   <p className="text-sm text-muted">{edu.institution}</p>
                 </div>
               </div>
 
-              <div className="flex justify-between text-sm text-accent mb-3">
-                <span>
-                  {edu.start_date} — {edu.end_date}
-                </span>
-                <span>GPA: {edu.gpa}</span>
-              </div>
+              <p className="text-sm text-accent mb-3">
+                {edu.start_date} — {edu.end_date}
+                <span className="text-muted ml-3">GPA: {edu.gpa}</span>
+              </p>
 
-              <div>
-                <p className="text-xs text-muted uppercase tracking-wide mb-2">Relevant Coursework</p>
-                <div className="flex flex-wrap gap-1">
-                  {edu.coursework.map((course) => (
-                    <span key={course} className="text-xs px-2 py-1 rounded bg-surface text-foreground">
-                      {course}
-                    </span>
-                  ))}
-                </div>
+              <p className="text-xs text-muted uppercase tracking-wide mb-2">Relevant Coursework</p>
+              <div className="flex flex-wrap gap-1">
+                {edu.coursework.map((course) => (
+                  <span key={course} className="text-xs px-2 py-1 rounded bg-surface text-foreground">
+                    {course}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
