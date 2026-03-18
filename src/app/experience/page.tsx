@@ -62,7 +62,7 @@ export default function ExperiencePage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold text-foreground">{edu.degree_aquired}</h3>
+                  <h3 className="text-xl font-bold text-foreground">{edu.degree_acquired}</h3>
                   <p className="text-sm text-muted">{edu.institution}</p>
                 </div>
               </div>

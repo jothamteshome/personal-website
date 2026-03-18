@@ -1,15 +1,7 @@
 import Image from 'next/image';
-import { aboutMeDescription, generalInfo, skills } from '@/constants/profileConstants';
+import { aboutMeDescription, generalInfo, skillCategories } from '@/constants/profileConstants';
 
 export default function AboutPage() {
-  const skillCategories = {
-    Languages: skills.slice(0, 7),
-    Frontend: skills.slice(7, 16),
-    Backend: skills.slice(16, 22),
-    'AI/ML': skills.slice(22, 26),
-    Databases: skills.slice(26, 29),
-    'Cloud & DevOps': skills.slice(29),
-  };
 
   return (
     <div className="py-20">
@@ -29,7 +21,7 @@ export default function AboutPage() {
           <div className="flex-1">
             <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">About Me</h1>
 
-            {aboutMeDescription.about_me.map((para, idx) => (
+            {aboutMeDescription.map((para, idx) => (
               <p
                 key={idx}
                 className="text-muted leading-relaxed mb-4"
@@ -54,10 +46,10 @@ export default function AboutPage() {
             <div className="flex flex-wrap gap-2">
               {categorySkills.map((skill) => (
                 <span
-                  key={skill.name}
+                  key={skill}
                   className="px-3 py-1 rounded-full bg-surface text-sm text-foreground"
                 >
-                  {skill.name}
+                  {skill}
                 </span>
               ))}
             </div>
