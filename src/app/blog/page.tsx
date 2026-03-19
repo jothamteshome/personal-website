@@ -1,5 +1,11 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { getAllPosts } from '@/lib/blog';
+
+export const metadata: Metadata = {
+  title: 'Blog | Jotham Teshome',
+  description: 'Writing about software, systems, and things I\'m learning along the way.',
+};
 
 export default function BlogPage() {
   const posts = getAllPosts();

@@ -18,6 +18,7 @@ export default function NavigationBar() {
               <Link
                 key={route.route}
                 href={route.route}
+                aria-current={isActive ? 'page' : undefined}
                 className={`text-xs sm:text-sm transition-colors duration-200 ${
                   isActive
                     ? 'text-accent font-medium'

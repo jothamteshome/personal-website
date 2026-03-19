@@ -1,5 +1,11 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { projectItems } from '@/constants/profileConstants';
+
+export const metadata: Metadata = {
+  title: 'Projects | Jotham Teshome',
+  description: 'A selection of projects I have built, spanning full-stack web apps, ML models, and cloud infrastructure.',
+};
 
 export default function ProjectsPage() {
   return (

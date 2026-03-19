@@ -1,6 +1,12 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { generalInfo, socialMediaLinks } from '@/constants/profileConstants';
 import LocalTime from '@/components/LocalTime';
+
+export const metadata: Metadata = {
+  title: 'Contact | Jotham Teshome',
+  description: 'Get in touch with Jotham Teshome. I\'m always open to discussing new projects and opportunities.',
+};
 
 export default function ContactPage() {
   const { contact_info } = generalInfo;
