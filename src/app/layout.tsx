@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { ThemeProviderWrapper } from '@/components/ThemeProviderWrapper';
 import NavigationBar from '@/components/NavigationBar';
 import '@/globals.css';
 
@@ -16,14 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="bg-(--color-background) text-(--color-foreground) min-h-screen antialiased transition-colors duration-200">
-        <ThemeProviderWrapper>
+    <html lang="en" className="dark">
+      <body className="bg-(--color-background) text-(--color-foreground) min-h-screen antialiased">
           <NavigationBar />
           <main className="container-prose py-0">
             {children}
           </main>
-        </ThemeProviderWrapper>
       </body>
     </html>
   );

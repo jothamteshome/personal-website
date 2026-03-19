@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { generalInfo, socialMediaLinks } from '@/constants/profileConstants';
+import { aboutMeDescription, generalInfo, socialMediaLinks } from '@/constants/profileConstants';
 
 export default function HomePage() {
   const { contact_info, images } = generalInfo;
@@ -35,7 +35,7 @@ export default function HomePage() {
       </p>
 
       {/* Social Links */}
-      <div className="flex gap-4 flex-wrap justify-center mb-12">
+      <div className="flex gap-4 flex-wrap justify-center mb-16">
         {socialMediaLinks.map((link) => (
           <Link
             key={link.name}
@@ -50,17 +50,22 @@ export default function HomePage() {
         ))}
       </div>
 
+      {/* About */}
+      <div className="max-w-lg w-full border-t border-surface pt-12 mb-12">
+        {aboutMeDescription.map((para, idx) => (
+          <p key={idx} className="text-muted leading-relaxed mb-4 last:mb-0">
+            {para}
+          </p>
+        ))}
+      </div>
+
       {/* CTA */}
       <p className="text-center text-sm text-muted">
         Explore my{' '}
         <Link href="/projects" className="text-accent hover:text-accent-secondary transition-colors font-medium">
           projects
         </Link>
-        ,{' '}
-        <Link href="/about" className="text-accent hover:text-accent-secondary transition-colors font-medium">
-          skills
-        </Link>
-        , and{' '}
+        {' '}and{' '}
         <Link href="/blog" className="text-accent hover:text-accent-secondary transition-colors font-medium">
           blog
         </Link>

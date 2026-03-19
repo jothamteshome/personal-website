@@ -49,6 +49,15 @@ export default function ProjectsPage() {
                   Live Demo →
                 </Link>
               )}
+
+              {project.blogSlug && (
+                <Link
+                  href={`/blog/${project.blogSlug}`}
+                  className="text-sm text-accent hover:underline underline-offset-2 transition-colors"
+                >
+                  Behind the build →
+                </Link>
+              )}
             </div>
           </div>
         ))}
