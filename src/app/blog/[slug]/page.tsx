@@ -49,6 +49,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="flex gap-3 items-center">
           <time className="text-sm text-muted">
             {new Date(post.date).toLocaleDateString('en-US', {
+              timeZone: 'UTC',
               year: 'numeric',
               month: 'long',
               day: 'numeric',

@@ -19,6 +19,7 @@ interface ContactInfo {
     name: string;
     email: string;
     location: string;
+    timezone: string;
 }
 
 interface GeneralInfo {
@@ -74,6 +75,7 @@ export const generalInfo: GeneralInfo = {
         name: 'Jotham Teshome',
         email: 'teshomejotham@gmail.com',
         location: 'West Bloomfield, Michigan',
+        timezone: 'America/Detroit',
     },
 };
 

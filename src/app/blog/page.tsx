@@ -27,6 +27,7 @@ export default function BlogPage() {
                 <div className="flex gap-3 items-center mb-3">
                   <time className="text-sm text-muted">
                     {new Date(post.date).toLocaleDateString('en-US', {
+                      timeZone: 'UTC',
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric',

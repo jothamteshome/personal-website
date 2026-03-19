@@ -1,38 +1,43 @@
 import Link from 'next/link';
 import { generalInfo, socialMediaLinks } from '@/constants/profileConstants';
+import LocalTime from '@/components/LocalTime';
 
 export default function ContactPage() {
   const { contact_info } = generalInfo;
 
   return (
-    <div className="py-20">
-      <div className="max-w-lg mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 text-center">Get in Touch</h1>
+    <div className="py-12">
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-center">Get in Touch</h1>
 
-        <p className="text-center text-muted mb-10 leading-relaxed">
+        <p className="text-center text-muted mb-8 leading-relaxed">
           I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
         </p>
 
         {/* Contact Info */}
-        <div className="space-y-6 mb-12">
-          <div className="text-center">
-            <p className="text-sm text-muted mb-2">Email</p>
-            <Link
-              href={`mailto:${contact_info.email}`}
-              className="text-lg font-medium text-accent hover:text-accent-secondary transition-colors break-all"
-            >
-              {contact_info.email}
-            </Link>
+        <div className="space-y-6 mb-8 text-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex-1">
+              <p className="text-sm text-muted mb-2">Email</p>
+              <Link
+                href={`mailto:${contact_info.email}`}
+                className="text-lg font-medium text-accent hover:text-accent-secondary transition-colors break-all"
+              >
+                {contact_info.email}
+              </Link>
+            </div>
+
+            <div className="flex-1">
+              <p className="text-sm text-muted mb-2">Location</p>
+              <p className="text-lg font-medium text-foreground">{contact_info.location}</p>
+            </div>
           </div>
 
-          <div className="text-center">
-            <p className="text-sm text-muted mb-2">Location</p>
-            <p className="text-lg font-medium text-foreground">{contact_info.location}</p>
-          </div>
-
-          <div className="text-center">
-            <p className="text-sm text-muted mb-2">Timezone</p>
-            <p className="text-lg font-medium text-foreground">Eastern Time (EST/EDT)</p>
+          <div>
+            <p className="text-sm text-muted mb-2">Local Time</p>
+            <p className="text-lg font-medium text-foreground">
+              <LocalTime timezone={contact_info.timezone} />
+            </p>
           </div>
         </div>
 
