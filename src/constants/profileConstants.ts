@@ -78,9 +78,8 @@ export const generalInfo: GeneralInfo = {
 };
 
 export const aboutMeDescription: string[] = [
-    "Hi, I'm Jotham, a Computer Science graduate with a Master of Science from Michigan State University. My work sits at the intersection of Software Engineering, AI, and Cloud Infrastructure, with a strong focus on building scalable backend systems and intelligent applications.",
-    "I thrive on solving complex technical problems and enjoy experimenting with new tools, whether it's deploying serverless architectures on AWS or fine-tuning machine learning models for NLP and Computer Vision tasks.",
-    "I'm always open to new challenges and meaningful collaborations. If you're a recruiter, engineer, or founder looking to build something impactful, I'd love to connect.",
+    "Hi, I'm Jotham, a junior software engineer with a Master's in Computer Science from Michigan State. I tend to gravitate toward the backend, though recently I've developed an interest in cloud technologies as well.",
+    "This site is part portfolio, part journal. I want to look back in five years and see exactly where my head was at early in my career, what I was building, what I was learning, and what I was still getting wrong.",
 ];
 
 export const projectItems: Project[] = [

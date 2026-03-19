@@ -29,11 +29,6 @@ export default function HomePage() {
         Software Engineer & ML Enthusiast
       </p>
 
-      {/* Bio */}
-      <p className="text-center text-muted max-w-lg mb-12 leading-relaxed">
-        Building scalable systems at the intersection of software engineering, AI, and cloud infrastructure.
-      </p>
-
       {/* Social Links */}
       <div className="flex gap-4 flex-wrap justify-center mb-16">
         {socialMediaLinks.map((link) => (
@@ -51,26 +46,28 @@ export default function HomePage() {
       </div>
 
       {/* About */}
-      <div className="max-w-lg w-full border-t border-surface pt-12 mb-12">
+      <div className="max-w-lg w-full border-t border-surface pt-12">
         {aboutMeDescription.map((para, idx) => (
-          <p key={idx} className="text-muted leading-relaxed mb-4 last:mb-0">
+          <p key={idx} className="text-muted text-center leading-relaxed mb-4">
             {para}
           </p>
         ))}
+        <p className="text-muted text-center leading-relaxed">
+          Feel free to explore my{' '}
+          <Link href="/projects" className="text-accent hover:text-accent-secondary transition-colors font-medium">
+            projects
+          </Link>
+          {' '}and{' '}
+          <Link href="/blog" className="text-accent hover:text-accent-secondary transition-colors font-medium">
+            blog
+          </Link>
+          , and if something catches your eye,{' '}
+          <Link href="/contact" className="text-accent hover:text-accent-secondary transition-colors font-medium">
+            my inbox is open
+          </Link>
+          .
+        </p>
       </div>
-
-      {/* CTA */}
-      <p className="text-center text-sm text-muted">
-        Explore my{' '}
-        <Link href="/projects" className="text-accent hover:text-accent-secondary transition-colors font-medium">
-          projects
-        </Link>
-        {' '}and{' '}
-        <Link href="/blog" className="text-accent hover:text-accent-secondary transition-colors font-medium">
-          blog
-        </Link>
-        .
-      </p>
     </div>
   );
 }
