@@ -13,7 +13,7 @@ export default function NavigationBar() {
         {/* Navigation Links */}
         <div className="flex items-center gap-4 sm:gap-8">
           {navigationRoutes.map((route) => {
-            const isActive = pathname === route.route;
+            const isActive = pathname === route.route || pathname.startsWith(route.route + '/');
             return (
               <Link
                 key={route.route}
