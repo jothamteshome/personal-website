@@ -92,7 +92,7 @@ export const projectItems: Project[] = [
             github: 'https://github.com/jothamteshome/NextJS-Portfolio-Website',
         },
         technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'MDX'],
-        year: '2026',
+        year: '2024',
         in_progress: true,
     },
     {
@@ -108,13 +108,14 @@ export const projectItems: Project[] = [
         in_progress: true,
     },
     {
-        name: 'ChatGPT API with AWS CDK',
+        name: 'Pixel Sorter',
         description:
-            "A serverless REST API that integrates OpenAI's GPT-4o-mini model using AWS CDK, Lambda, and API Gateway. Designed for scalable, secure deployment of chat-based AI services.",
+            'A web app that takes any uploaded image and rearranges its pixels sorted by their distance from black, producing a gradient-like visual effect. The sort runs in a Web Worker to avoid blocking the UI during processing.',
         links: {
-            github: 'https://github.com/jothamteshome/AWS-ChatGPT-API',
+            github: 'https://github.com/jothamteshome/pixel-sorter',
+            live_demo: 'https://pixel-sorter.whymighta.net/',
         },
-        technologies: ['AWS CDK', 'Lambda', 'API Gateway', 'OpenAI', 'Python'],
+        technologies: ['React Router', 'TypeScript', 'Tailwind CSS', 'Vite'],
         year: '2025',
     },
     {
@@ -146,6 +147,17 @@ export const projectItems: Project[] = [
         },
         technologies: ['Python', 'PyTorch', 'scikit-learn', 'BeautifulSoup'],
         year: '2023',
+    },
+    {
+        name: 'Whymighta Discord Bot',
+        description:
+            'A Discord bot built for a small friend group with a wide range of features, including an LLM-powered chatbot with OpenAI and Anthropic support, guild XP and leveling, Fortnite stats, weather lookup, server theming, and moderation. Built with a database-backed architecture, a pytest test suite, and Docker deployment.',
+        links: {
+            github: 'https://github.com/jothamteshome/whymighta',
+        },
+        technologies: ['Python', 'disnake', 'PostgreSQL', 'Docker', 'OpenAI', 'Anthropic'],
+        year: '2022',
+        in_progress: true,
     },
 ];
 

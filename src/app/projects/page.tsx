@@ -8,12 +8,19 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  const sorted = [...projectItems].sort((a, b) => {
+    if (!!a.in_progress !== !!b.in_progress) return a.in_progress ? -1 : 1;
+    const yearDiff = parseInt(b.year) - parseInt(a.year);
+    if (yearDiff !== 0) return yearDiff;
+    return a.name.localeCompare(b.name);
+  });
+
   return (
     <div className="py-20">
       <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-12">Projects</h1>
 
       <div className="space-y-10">
-        {projectItems.map((project, idx) => (
+        {sorted.map((project, idx) => (
           <div key={idx} className="border-b border-surface pb-10 last:border-b-0 last:pb-0">
             <div className="flex items-baseline gap-3 mb-2">
               <h2 className="text-xl font-bold text-foreground">{project.name}</h2>
