@@ -119,6 +119,27 @@ export const projectItems: Project[] = [
         year: '2025',
     },
     {
+        name: 'Personal Cloud Infrastructure',
+        description:
+            'Infrastructure-as-code repo that manages personal cloud resources on AWS. Includes CDK stacks for static site hosting, a Lambda-based status monitoring API, a Lambda that auto-starts Minecraft EC2 instances on DNS query, and Docker Compose configuration for self-hosted services.',
+        links: {
+            github: 'https://github.com/jothamteshome/infra-hub',
+        },
+        technologies: ['Python', 'AWS Lambda', 'AWS CDK', 'Docker', 'GitHub Actions'],
+        year: '2026',
+    },
+    {
+        name: 'System Dashboard',
+        description:
+            'A personal status dashboard that monitors self-hosted infrastructure in real time. Tracks Minecraft server status and player counts, HTTP health of web projects, and Docker container resource usage. Built with React and Vite, pulling from a Lambda-backed API on a 60-second interval.',
+        links: {
+            github: 'https://github.com/jothamteshome/system-dashboard',
+            live_demo: 'https://status.whymighta.net',
+        },
+        technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'AWS'],
+        year: '2026',
+    },
+    {
         name: 'Classification of Pokemon Sprites',
         description:
             'Collaborated with a team of four to design and implement a convolutional neural network model that classifies Pokémon sprites within battle images, achieving up to 86% accuracy using image processing and deep learning techniques.',
