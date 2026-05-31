@@ -1,0 +1,33 @@
+---
+title: "Cutting My AWS Bill in Half"
+date: "2026-05-30"
+excerpt: "I was running two EC2 instances and a managed database for personal projects that barely get traffic. Here's what I changed and why."
+tags: ["aws", "docker", "infrastructure", "devops"]
+published: true
+---
+
+My April AWS bill was $46.07. Nothing too crazy, but a closer look made it clear I was leaving money on the table.
+
+## The Old Setup
+
+I was running two separate t2.micro EC2 instances: one for my [watch-together](https://github.com/jothamteshome/watch-together) project, and another for [whymighta](https://github.com/jothamteshome/whymighta), a Discord bot I wrote for a small server I'm in. The real killer though was the managed RDS MySQL instance that cost around $13 a month storing data for the bot.
+
+The bot itself is nothing special. It only exists in a single server of about 30 people, and handles a few dozen requests a day. Why the separate EC2 instance then? That approach came from something I'd read about best practices regarding isolation and deployment. This advice may make sense at scale or in a production system, but for my low-usage side projects, it's overkill.
+
+The managed RDS MySQL instance approach also stemmed from this idea. When I'd originally set up this bot on AWS, I was still within my 12-month free-tier window. With the only costs being the $2.30 per month from the DB, it was cheap enough that I didn't mind paying. Without free-tier though, I was paying around $21.35 a month for the bot alone. Add another $8.30 for the second t2.micro I had running, and it's clear how the costs added up so quickly.
+
+## The Moment I Decided To Make A Change
+
+In late April, I had been reading about how some people use pi-hole as an ad blocker, and wanted to see if I could set up the software for myself. As I went to set up a third EC2 instance, though, I realized how wasteful I was being. Here I was, about to commit another $8.30 to an instance that would likely sit idle, while the other two instances had so much unused capacity already. This is what pushed me to find a way to keep all my services running without paying for so much idle capacity.
+
+## The New Setup
+
+Instead of having every service running on its own EC2 instance, I consolidated everything onto a single t3a.small instance running Docker Compose.
+
+Now the Discord bot, watch-together, an nginx reverse proxy, containerized PostgreSQL, pi-hole, and WireGuard all live on one machine. Deployments still flow through GitHub Actions. Images are built and pushed to GHCR, then the instance pulls and restarts containers via AWS SSM. Database backups are handled by a nightly pg_dump cronjob pushing to S3. Migrating from the managed MySQL to the self-hosted PostgreSQL was the largest hurdle, but even that was simple given the amount of data I was storing.
+
+## The Result
+
+As of May 30th, my monthly AWS bill is now down to $24.43, a 47% decrease from last month, all while running more services than I had originally. Of course, this consolidation is not without its downsides. It is a single point of failure, so if the instance goes down, everything goes down. For personal projects where uptime is more for convenience rather than a necessity, that's an acceptable risk.
+
+The next time I'm about to spin up a new instance, I'll ask why before I do.
