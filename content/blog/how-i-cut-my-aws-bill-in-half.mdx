@@ -22,7 +22,7 @@ In late April, I had been reading about how some people use pi-hole as an ad blo
 
 ## The New Setup
 
-Instead of having every service running on its own EC2 instance, I consolidated everything onto a single t3a.small instance running Docker Compose.
+Instead of having every service running on its own EC2 instance, I consolidated everything onto a single t3a.small instance running [Docker Compose](https://github.com/jothamteshome/infra-hub/tree/main/compose/perpetual-app-host).
 
 Now the Discord bot, watch-together, an nginx reverse proxy, containerized PostgreSQL, pi-hole, and WireGuard all live on one machine. Deployments still flow through GitHub Actions. Images are built and pushed to GHCR, then the instance pulls and restarts containers via AWS SSM. Database backups are handled by a nightly pg_dump cronjob pushing to S3. Migrating from the managed MySQL to the self-hosted PostgreSQL was the largest hurdle, but even that was simple given the amount of data I was storing.
 
