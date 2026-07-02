@@ -1,0 +1,49 @@
+---
+title: "A Few Small Things"
+date: "2026-06-30"
+excerpt: "This month didn't have one big project, just an AWS cert, a rebuilt Minecraft server, and a couple of postponed exams."
+tags: ["certifications", "aws", "career", "reflection"]
+published: true
+---
+
+Hello all,
+
+I come here, head down, to share some bad news... I didn't get a big project done this month. Instead, I did a few little things, things that may or may not be meaningful in the long run, but that I wanted to do for myself.
+
+Of those things, two stand out the most.
+
+1. I took and passed the AWS Certified AI Practitioner exam
+2. I overhauled a Minecraft server running on an EC2 instance
+
+
+## Getting Certified
+
+So, first things first. I planned to do three certifications this month. The AI Practitioner, as I mentioned above, was one, but I had also planned to take the AWS Certified Solutions Architect Associate and the Anthropic Claude Certified Architect exams.
+
+The Certified AI Practitioner exam was first, and I spent the first week of June preparing for it. The exam itself wasn't as challenging as I thought, but trying to focus on preparing definitely was. It hasn't even been two years since I graduated, and it feels like all my study habits have disappeared.
+
+That ordeal gave me some perspective on what I'd need to do to complete the second exam I'd planned for, the AWS SAA-C03 exam. I was hoping to study for and get it done in two weeks, but I ultimately decided to postpone it. I realized I don't have anything to prove to anyone, and that I'd rather take more time to prepare and pass than to cram and potentially fail.
+
+That leaves me with one. The Claude Certified Architect exam. Unlike the other two, this one was being offered through the company I work for, so it took precedence over the SAA-C03 exam. That being said, I still struggled to stay focused when studying for it this month. With the deadline I had initially been told, June 30th, quickly approaching, I began to panic. Thankfully, that didn't end up being the true date for the exam, so it is with relief that I write this post today.
+
+So that leaves me where I said I was. Current standings: Me - 1, Certification Exams - 2. Hoping to bring it back next month!
+
+
+## Minecraft Server
+
+The Minecraft server project came with a lot less pressure. This one was just for me. 
+
+Let me lay down some groundwork. I already had a perfectly fine instance that had a Minecraft server running on it. There wasn't even a two-week Minecraft stint in the friend group this month. So why go through the effort of setting up another one?
+
+Well, the previous server was set up manually. This was fine in practice, but there was a bit of trouble a few months back when we decided we wanted to upgrade versions. I believe we went from 1.21.4 to 1.21.5, so not that big of an upgrade, but still a pain.
+
+I had to get the new server version, connect to the EC2 instance, upload the new version, make a backup of our old version's world, then update all of the mods to the new version. Not a technical marvel, but annoying to do and a bit of a waste of time when we want to play immediately.
+
+With this new version, my main goal was to make this process easier, and wouldn't you know it, someone had already solved the problem for me. A [docker image](https://github.com/itzg/docker-minecraft-server) with everything I needed, right there, plus a [sidecar image](https://github.com/itzg/docker-mc-backup) that handled backups. Each one is stored in S3 under a dated key per world, so same day backups just version the same file, and non-current ones get cleaned up by a lifecycle policy. It was a dream come true! The version upgrades, backups, and mods all solved just like that.
+
+So then I decided to take it further. Minecraft was already handled for me, so I improved how I would set it up instead. That's where my [setup script](https://github.com/jothamteshome/infra-hub/blob/main/compose/minecraft/shared/scripts/setup-instance.sh) came into play. With it, I could set up the entire workflow: the git repository, the environment variable fetching, even registering the instance's public IP address in Route53. All of it could be done with a single setup script that runs every time the instance loads.
+
+Once that's done, all I have to do is run `docker compose up -d` and it's go time.
+
+
+Like I said, this month wasn't defined by a specific project where I learned all sorts of interesting things or did something special. It was just some personal development with a little something to entertain me on the side, and I'm glad I did it.
